@@ -1,0 +1,115 @@
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [INFO] Written to text reader
+Hallo!
+sizeInBytes:     6
+noOfLines:       1
+elapsedTimeInMs: 0
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [INFO] Written to text reader
+Hallo!
+My name is Tony
+And yours?
+sizeInBytes:     33
+noOfLines:       3
+elapsedTimeInMs: 0
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [INFO] Written to text reader
+ありがとう
+sizeInBytes:     15
+noOfLines:       1
+elapsedTimeInMs: 0
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [ERROR] Text reader error: Empty string!
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [ERROR] Text reader error: Empty string!
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [INFO] Written to text reader
+Hallo!
+
+sizeInBytes:     7
+noOfLines:       1
+elapsedTimeInMs: 0
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     20
+noOfLines:       1
+elapsedTimeInSec 0.2
+Read 1 lines. Throughput rate of the input stream 100 (bytes/sec)
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     300
+noOfLines:       7
+elapsedTimeInSec 1
+Read 7 lines. Throughput rate of the input stream 300 (bytes/sec)
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [ERROR] Text statistics error: Something wrong was written to the stream...
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [ERROR] Text statistics error: Something wrong was written to the stream...
+Fri Oct 13 2017 23:18:11 GMT-0700 (PDT) [ERROR] Text statistics error: Something wrong was written to the stream...
+Fri Oct 13 2017 23:20:48 GMT-0700 (PDT) [INFO] Written to text reader
+asdfg
+
+sizeInBytes:     6
+noOfLines:       1
+elapsedTimeInMs: 2611
+Fri Oct 13 2017 23:20:48 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     6
+noOfLines:       1
+elapsedTimeInSec 2.611
+Read 1 lines. Throughput rate of the input stream 2.297970126388357 (bytes/sec)
+Fri Oct 13 2017 23:20:50 GMT-0700 (PDT) [INFO] Written to text reader
+asdfg
+
+sizeInBytes:     12
+noOfLines:       2
+elapsedTimeInMs: 4201
+Fri Oct 13 2017 23:20:50 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     12
+noOfLines:       2
+elapsedTimeInSec 4.201
+Read 2 lines. Throughput rate of the input stream 2.8564627469650086 (bytes/sec)
+Fri Oct 13 2017 23:20:51 GMT-0700 (PDT) [INFO] Written to text reader
+asdf
+
+sizeInBytes:     17
+noOfLines:       3
+elapsedTimeInMs: 5249
+Fri Oct 13 2017 23:20:51 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     17
+noOfLines:       3
+elapsedTimeInSec 5.249
+Read 3 lines. Throughput rate of the input stream 3.238712135644885 (bytes/sec)
+Fri Oct 13 2017 23:20:52 GMT-0700 (PDT) [INFO] Written to text reader
+sdfg
+
+sizeInBytes:     22
+noOfLines:       4
+elapsedTimeInMs: 6523
+Fri Oct 13 2017 23:20:52 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     22
+noOfLines:       4
+elapsedTimeInSec 6.523
+Read 4 lines. Throughput rate of the input stream 3.3726812816188874 (bytes/sec)
+Fri Oct 13 2017 23:20:54 GMT-0700 (PDT) [INFO] Written to text reader
+asdfg
+
+sizeInBytes:     28
+noOfLines:       5
+elapsedTimeInMs: 7926
+Fri Oct 13 2017 23:20:54 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     28
+noOfLines:       5
+elapsedTimeInSec 7.926
+Read 5 lines. Throughput rate of the input stream 3.5326772646984606 (bytes/sec)
+Fri Oct 13 2017 23:20:54 GMT-0700 (PDT) [INFO] Written to text reader
+asdf
+
+sizeInBytes:     33
+noOfLines:       6
+elapsedTimeInMs: 8813
+Fri Oct 13 2017 23:20:54 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     33
+noOfLines:       6
+elapsedTimeInSec 8.813
+Read 6 lines. Throughput rate of the input stream 3.744468398956087 (bytes/sec)
+Fri Oct 13 2017 23:21:00 GMT-0700 (PDT) [INFO] Written to text reader
+asdhj yehtrgbnvekj;f her;ihg;r;kjehtvinrhcj;egw kjv;hejcng;w;rrw
+
+sizeInBytes:     98
+noOfLines:       7
+elapsedTimeInMs: 14225
+Fri Oct 13 2017 23:21:00 GMT-0700 (PDT) [INFO] Logging text statistics
+sizeInBytes:     98
+noOfLines:       7
+elapsedTimeInSec 14.225
+Read 7 lines. Throughput rate of the input stream 6.889279437609842 (bytes/sec)

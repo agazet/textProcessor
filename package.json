@@ -1,0 +1,19 @@
+{
+  "name": "textprocessor",
+  "version": "1.0.0",
+  "description": "Text Processor for Hack Capital",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/testRunner.js"
+  },
+  "keywords": [
+    "text",
+    "processor"
+  ],
+  "author": "Aga Zaboklicka <a.zaboklicka@gmail.com>",
+  "license": "MIT"
+}
