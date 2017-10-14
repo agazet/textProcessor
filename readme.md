@@ -1,9 +1,36 @@
-Run script using
+**Usage example**  
+(based on Linux OS, tested on Elementary OS): 
 
-Run tests using npm test
+- run the script from project directory    
+``` $ ./runTextProcessor.sh ```   
+Note: if you have no rigts to execute the file run   
+``` $ chmod u+x runTextProcessor.sh``` 
 
-Problem description
+- or simply from command line:  
+``` $ ping www.google.com >> /tmp/pingGoogle.log | tail -f /tmp/pingGoogle.log | node textProcessor/runTextProcessor.js ```
+
+- from runTextProcessor.js directory  
+``` $ ping www.google.com >> pingGoogle.log | tail -f pingGoogle.log | node runTextProcessor.js ```
+
+**Running tests**
+
+``` $ npm test ```
+
+*Note*:
+Tests can by also run using node & /test/testRunner.js but then the modules paths have to be adjusted as below:
+
+- in textReaderTest.js:   
+```javascript
+const TextReader = require(path.resolve('../textReader/textReader')); //to run from test directory using <<node testRunner.js>> path has to be changed  
+```
+- in textStatisticsTest.js
+```javascript
+const TextStatistics = require(path.resolve('../textReader/textStatistics')); //to run from test directory using <<node testRunner.js>> path has to be changed
+```
+
 ---
+**Problem description**
+
 - Try to avoid using third-party modules
 - Stick to node.js core APIs
 - Write a test to confirm your module works correctly
@@ -21,9 +48,5 @@ a log file) and report on the number of lines and growth rate of
 the file. Bonus points if your script is configurable in some way
 via `argv` (use your imagination).
 
-Imagine a usage like this:
-
-```
-$ tail -f mylogfile | myscript --verbose
-
-
+Imagine a usage like this:  
+``` $ tail -f mylogfile | myscript --verbose ```
