@@ -2,8 +2,7 @@
 
 const assert = require('assert');
 const path = require('path');
-const TextReader = require(path.resolve('./textProcessor/textReader')); //running tests with npm test. 
-//const TextReader = require(path.resolve('../textReader/textReader')); //to run from test directory using <<node testRunner.js>> path has to be changed
+const TextReader = require(path.resolve('./textProcessor/textReader')); //running tests with npm test
 
 let testsPassed = 0;
 
