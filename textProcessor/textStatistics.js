@@ -5,8 +5,9 @@ const logger = require('./logger');
 
 class TextStatistics extends stream.Transform{
 	
-	constructor() { 
-	    super({writableObjectMode: true}); 
+	constructor(loggingOptions) { 
+	    super({writableObjectMode: true});
+	    this.loggingOptions = loggingOptions;
 	}
 	
 	_transform(textInfo, encoding, callback){
@@ -23,19 +24,31 @@ class TextStatistics extends stream.Transform{
 			
 			const growRate = sizeInBytes/elapsedTimeInSec;
 			
-			const textStatisticsMessage = `Read ${noOfLines} lines. Throughput rate of the input stream ${growRate} (bytes/sec)`
+			const textStatisticsMessage = `Read ${noOfLines} lines. Throughput rate of the input stream ${growRate} (bytes/sec)`;
 			
-			logger.info("Logging text statistics"
-					+"\nsizeInBytes:     "+sizeInBytes
-					+"\nnoOfLines:       "+noOfLines
-					+"\nelapsedTimeInSec "+elapsedTimeInSec
-					+"\n" + textStatisticsMessage);
+			logInfo(this.loggingOptions, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage);
 			
 			this.push(textStatisticsMessage+"\n");
 		}
 		
 		callback();
 	}
+}
+
+function logInfo(loggingOptions, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage){
+	console.log(loggingOptions);
+	if(loggingOptions){
+		
+		const msg = "Logging text statistics"
+			+"\nsizeInBytes:     "+sizeInBytes
+			+"\nnoOfLines:       "+noOfLines
+			+"\nelapsedTimeInSec "+elapsedTimeInSec
+			+"\n" + textStatisticsMessage;
+		const Logger = require('./logger');
+		const logger = new Logger(loggingOptions);
+		logger.info(msg, loggingOptions.logFilePath);
+	}
+	
 }
 
 module.exports = TextStatistics;
