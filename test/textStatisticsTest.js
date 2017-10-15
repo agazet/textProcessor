@@ -4,7 +4,7 @@ const assert = require('assert');
 const path = require('path');
 const TextStatistics = require(path.resolve('./textProcessor/textStatistics')); //running tests with npm test
 
-let testsPassed = 0;
+let passedTests = 0;
 
 module.exports.isCorrectThroughput = function(){
 	const textInfo = {
@@ -49,7 +49,7 @@ module.exports.throwsErrorForNull = function (){
 			Error,
 			"Didn't throw an error"
 			);
-	testsPassed++;
+	passedTests++;
 }
 
 module.exports.throwsErrorForEmptyWrite = function (){
@@ -59,7 +59,7 @@ module.exports.throwsErrorForEmptyWrite = function (){
 			Error,
 			"Didn't throw an error"
 			);
-	testsPassed++;
+	passedTests++;
 }
 
 module.exports.isCorrectMsgForNull = function (){
@@ -69,11 +69,11 @@ module.exports.isCorrectMsgForNull = function (){
 			/Something wrong was written to the stream.../,//
 			"Incorrect error message"
 			);
-	testsPassed++;
+	passedTests++;
 }
 
-module.exports.testsPassed = function(){
-	console.log(`\nAll text statistics' tests (${testsPassed}) passed`);
+module.exports.passedTests = function(){
+	console.log(`\nAll text statistics' tests (${passedTests}) passed`);
 }
 
 function assertTextStatisticsMessage(actualMessage, expectedMessage){
@@ -93,5 +93,5 @@ function testTextStatisticsMessage(textInfo, expectedMessage){
 	const actualMessage = textStatistics.read().toString();
 	assertTextStatisticsMessage(actualMessage, expectedMessage);
 	
-	testsPassed++;
+	passedTests++;
 }

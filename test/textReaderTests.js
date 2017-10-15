@@ -4,7 +4,7 @@ const assert = require('assert');
 const path = require('path');
 const TextReader = require(path.resolve('./textProcessor/textReader')); //running tests with npm test
 
-let testsPassed = 0;
+let passedTests = 0;
 
 //no test for elapsed time since it's hardware specific and some info may be cached
 module.exports.isLengthInBytesAndNoOfLinesCorrectForOneLine = function (){
@@ -29,7 +29,7 @@ module.exports.throwsErrorForEmptyString = function (){
 			Error,
 			"Didn't throw an error"
 			);
-	testsPassed++;
+	passedTests++;
 }
 
 module.exports.isCorrectMsgForEmptyString = function (){
@@ -39,7 +39,7 @@ module.exports.isCorrectMsgForEmptyString = function (){
 			/Empty string!/,//
 			"Incorrect empty string message"
 			);
-	testsPassed++;
+	passedTests++;
 }
 
 module.exports.isLengthInBytesAndNoOfLinesCorrectForNewLine = function (){
@@ -47,8 +47,8 @@ module.exports.isLengthInBytesAndNoOfLinesCorrectForNewLine = function (){
 	testTextReader(text, 7, 1);
 }
 
-module.exports.testsPassed = function(){
-	console.log(`\nAll text reader's tests (${testsPassed}) passed`);
+module.exports.passedTests = function(){
+	console.log(`\nAll text reader's tests (${passedTests}) passed`);
 }
 
 function assertEqual(actual, expected, errorMessage){
@@ -60,5 +60,5 @@ function testTextReader(text, expectedSizeInBytes, expectedNoOfLines){
 	textReader.write(text);
 	assertEqual(textReader.textInfo.sizeInBytes, expectedSizeInBytes, text + " size in bytes");
 	assertEqual(textReader.textInfo.noOfLines, expectedNoOfLines, text + " no of lines" );
-	testsPassed++;
+	passedTests++;
 }
