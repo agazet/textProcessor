@@ -1,13 +1,13 @@
 Main file name is runTextProcessor.js
 
 Usage:
-$ node runTextProcessor.js [LOGGING MODE] [LOG DESTINATION]
+```$ node runTextProcessor.js [LOGGING MODE] [LOG DESTINATION]```
 
-Possible logging modes:
-log -> log to file (default directory or LOG DESTINATION)
-verbose -> log to console
-logv -> log to console and to file (LOG DESTINATION or default if not specified)
-help -> shows this message
+Possible logging modes:  
+log -> log to file (default directory or LOG DESTINATION)  
+verbose -> log to console  
+logv -> log to console and to file (LOG DESTINATION or default if not specified)  
+help -> shows this message  
 
 Log file default path log/texProcessor.log
 
