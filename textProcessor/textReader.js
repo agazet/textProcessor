@@ -4,13 +4,13 @@ const stream = require('stream');
 
 class TextReader extends stream.Transform{
 	
-	constructor(loggingOptions) { 
+	constructor(loggingOption) { 
 	    super({objectMode: true}); 
 	    this.textInfo = {
 	    		sizeInBytes: 0,
 	    		noOfLines: 0,
 	    		elapsedTimeInMs: 0,
-	    		loggingOptions: loggingOptions
+	    		loggingOption: loggingOption
 	    
 	    };
 	    this.startTime = new Date();
@@ -19,12 +19,14 @@ class TextReader extends stream.Transform{
 	_transform(chunk, encoding, callback){
 		
 		if(chunk == null){
+			const logger = getLogger(this.textInfo);
 			logger.error("Text reader error: Empty string!");
 			throw new Error("Empty string!");
 		} else {
-			this.textInfo.noOfLines += countNoOfLines(chunk, encoding);
+			this.textInfo.noOfLines += countLines(chunk, encoding);
 			this.textInfo.sizeInBytes += Buffer.byteLength(chunk, encoding);
 			this.textInfo.elapsedTimeInMs = new Date() - this.startTime;
+			
 			logInfo(chunk, this.textInfo);
 		}
 		
@@ -35,25 +37,29 @@ class TextReader extends stream.Transform{
 	
 }
 
-function countNoOfLines(chunk, encoding){
+function countLines(chunk, encoding){
 	//assuming no white characters in the beginning and end of stream
 	return chunk.toString(encoding).trim().split(/\r\n|[\n\r\u0085\u2028\u2029]/g).length;
 }
 
 function logInfo(chunk, textInfo){
-	console.log(textInfo.loggingOptions)
-	if(textInfo.loggingOptions){
+	if(textInfo.loggingOption){
 		
 		const msg = "Written to text reader"+"\n"+chunk
 			+"\nsizeInBytes:     "+textInfo.sizeInBytes
 			+"\nnoOfLines:       "+textInfo.noOfLines
 			+"\nelapsedTimeInMs: "+textInfo.elapsedTimeInMs;
 
-		const Logger = require('./logger');
-		const logger = new Logger(textInfo.loggingOptions);
-		logger.info(msg, textInfo.loggingOptions.logFilePath);
+		;
+		const logger = getLogger(textInfo);
+		logger.info(msg, textInfo.loggingOption.logFilePath);
 	}
 	
+}
+
+function getLogger(textInfo){
+	const Logger = require('./logger');
+	return new Logger(textInfo.loggingOption)
 }
 
 module.exports = TextReader;

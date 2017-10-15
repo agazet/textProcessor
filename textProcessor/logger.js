@@ -1,34 +1,52 @@
-const fs = require('fs');
+const fs = require('fs'); 
+
+const DEFAULT_LOG_PATH = "../log/textProcessor.log";
 
 class Logger {
 	
-	constructor(loggingOptions){
-		this.loggingOptions = loggingOptions;
+	constructor(loggingOption){
+		if(loggingOption){
+			this.mode = loggingOption[0];
+			this.logPath = loggingOption[1] || DEFAULT_LOG_PATH;
+		}
 	}
 	
 	error (msg){
-		if(this.loggingOptions.log){
-			logToFile("[ERROR] "+msg, this.loggingOptions.logFilePath);
+		if(isLogToFile(this.mode)){
+			logToFile("[ERROR] "+msg, this.logPath);
 		}
-		if(this.loggingOptions.verbose){
-			console.log(new Date()+ " [ERROR] "+msg)
+		
+		if(isLogToConsole(this.mode)){
+			logToConsole(" [ERROR] "+msg)
 		}
 	}
 	
 	info (msg){
-		if(this.loggingOptions.logToFile){
-			logToFile("[INFO] "+msg, this.loggingOptions.logFilePath);
+		if(isLogToFile(this.mode)){
+			logToFile("[INFO] "+msg, this.logPath);
 		}
-		if(this.loggingOptions.verbose){
-			console.log(new Date()+ " [INFO] "+msg)
+		if(isLogToConsole(this.mode)){
+			logToConsole(" [INFO] "+msg);
 		}
 	}
 	
 }
 
 function logToFile (msg, logFilePath){
-	const logPath = logFilePath || "../log/textProcessor.log";
+	const logPath = logFilePath;
 	fs.appendFile(logPath, new Date() + " " +msg + "\n", () => {/*do nothing*/}); 
+}
+
+function logToConsole(msg){
+	console.log(new Date()+msg);
+}
+
+function isLogToFile(mode){
+	return mode === 'log' || mode === 'logv';
+}
+
+function isLogToConsole(mode){
+	return mode === 'verbose' || mode === 'logv';
 }
 
 module.exports = Logger;

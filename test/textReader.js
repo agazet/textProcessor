@@ -9,17 +9,17 @@ let passedTests = 0;
 //no test for elapsed time since it's hardware specific and some info may be cached
 module.exports.isLengthInBytesAndNoOfLinesCorrectForOneLine = function (){
 	const text = "Hallo!";
-	testTextReader(text, 6, 1);
+	testOutput(text, 6, 1);
 }
 
 module.exports.isLengthInBytesAndNoOfLinesCorrectFor3Lines = function (){
 	const text = "Hallo!\nMy name is Tony\nAnd yours?";
-	testTextReader(text, 33, 3);
+	testOutput(text, 33, 3);
 }
 
 module.exports.isLengthInBytesAndNoOfLinesCorrectForJapanese = function (){
 	const text="ありがとう";
-	testTextReader(text, 15, 1);
+	testOutput(text, 15, 1);
 }
 
 module.exports.throwsErrorForEmptyString = function (){
@@ -44,7 +44,7 @@ module.exports.isCorrectMsgForEmptyString = function (){
 
 module.exports.isLengthInBytesAndNoOfLinesCorrectForNewLine = function (){
 	const text = "Hallo!\n"
-	testTextReader(text, 7, 1);
+	testOutput(text, 7, 1);
 }
 
 module.exports.passedTests = function(){
@@ -55,7 +55,7 @@ function assertEqual(actual, expected, errorMessage){
 	assert.equal(actual, expected, `\nText:\n${errorMessage}: expected ${expected}, actual ${actual}`);
 }
 
-function testTextReader(text, expectedSizeInBytes, expectedNoOfLines){
+function testOutput(text, expectedSizeInBytes, expectedNoOfLines){
 	const textReader = new TextReader();
 	textReader.write(text);
 	assertEqual(textReader.textInfo.sizeInBytes, expectedSizeInBytes, text + " size in bytes");

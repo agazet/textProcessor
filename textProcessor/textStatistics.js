@@ -1,18 +1,21 @@
 'use strict';
 
 const stream = require('stream');
-const logger = require('./logger');
 
 class TextStatistics extends stream.Transform{
 	
-	constructor(loggingOptions) { 
+	constructor(loggingOption) { 
 	    super({writableObjectMode: true});
-	    this.loggingOptions = loggingOptions;
+	    if(loggingOption){
+	    	const logger = require('./logger');
+	    	this.loggingOption = loggingOption;
+	    }
 	}
 	
 	_transform(textInfo, encoding, callback){
 		
 		if(textInfo == null){
+			const logger = getLogger(this.loggingOption);
 			logger.error("Text statistics error: Something wrong was written to the stream...");
 			throw new Error("Something wrong was written to the stream...");
 		} else {
@@ -26,7 +29,7 @@ class TextStatistics extends stream.Transform{
 			
 			const textStatisticsMessage = `Read ${noOfLines} lines. Throughput rate of the input stream ${growRate} (bytes/sec)`;
 			
-			logInfo(this.loggingOptions, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage);
+			logInfo(this.loggingOption, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage);
 			
 			this.push(textStatisticsMessage+"\n");
 		}
@@ -35,20 +38,24 @@ class TextStatistics extends stream.Transform{
 	}
 }
 
-function logInfo(loggingOptions, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage){
-	console.log(loggingOptions);
-	if(loggingOptions){
+function logInfo(loggingOption, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage){
+	if(loggingOption){
 		
 		const msg = "Logging text statistics"
 			+"\nsizeInBytes:     "+sizeInBytes
 			+"\nnoOfLines:       "+noOfLines
 			+"\nelapsedTimeInSec "+elapsedTimeInSec
 			+"\n" + textStatisticsMessage;
-		const Logger = require('./logger');
-		const logger = new Logger(loggingOptions);
-		logger.info(msg, loggingOptions.logFilePath);
+		const logger = getLogger(loggingOption);
+		logger.info(msg, loggingOption.logFilePath);
 	}
 	
 }
+
+function getLogger(loggingOption){
+	const Logger = require('./logger');
+	return new Logger(loggingOption)
+}
+
 
 module.exports = TextStatistics;

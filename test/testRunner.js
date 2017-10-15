@@ -1,22 +1,21 @@
 'use strict';
 
-console.log("\n***********************************************************************");
 const textReader = require('./textReader');
+runTests(textReader);
 
-for(let testFunc in textReader){
-	textReader[testFunc]();
-}
-
-console.log("\n***********************************************************************");
 const textStatistics = require('./textStatistics');
+runTests(textStatistics);
 
-for(let testFunc in textStatistics){
-	textStatistics[testFunc]();
-}
-
-console.log("\n***********************************************************************");
 const textProcessor = require('./textProcessor');
+runTests(textProcessor);
 
-for(let testFunc in textProcessor){
-	textProcessor[testFunc]();
+
+function runTests(module){
+	console.log("\n**************************** start of test ****************************");
+	
+	for(let testFunc in module){
+		module[testFunc]();
+	}
+	
+	console.log("\n***************************** end of test *****************************");
 }
