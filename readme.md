@@ -1,3 +1,17 @@
+Main file name is runTextProcessor.js
+
+Usage:
+$ node runTextProcessor.js [LOGGING MODE] [LOG DESTINATION]
+
+Possible logging modes:
+log -> log to file (default directory or LOG DESTINATION)
+verbose -> log to console
+logv -> log to console and to file (LOG DESTINATION or default if not specified)
+help -> shows this message
+
+Log file default path log/texProcessor.log
+
+
 **Usage example**  
 (based on Linux OS, tested on Elementary OS): 
 
@@ -6,7 +20,9 @@
 Note: if you have no rigts to execute the file run   
 ``` $ chmod u+x runTextProcessor.sh``` 
 
-- or simply from command line:  
+- or from command line:  
+``` $ node runTextProcessor.js log ../log/test123.log```
+- or like this:
 ``` $ ping www.google.com >> /tmp/pingGoogle.log | tail -f /tmp/pingGoogle.log | node textProcessor/runTextProcessor.js ```
 
 - from runTextProcessor.js directory  
