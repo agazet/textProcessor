@@ -16,12 +16,13 @@ module.exports.isSupported = function (loggingOption){
 }
 
 function showHelpInfo(){
-	console.log("Script can be used with or without logging option\nPossible logging options:\n"
-			+"log -> log to file (default directory)\n"
-			+"log -> /log/file/path log to /log/file/path\n"
+	console.log("node runTextProcessor.js [LOGGING MODE] [LOG DESTINATION]\n\n"
+			+"Possible logging modes:\n"
+			+"log -> log to file (default directory or LOG DESTINATION)\n"
 			+"verbose -> log to console\n"
-			+"logv -> log to console and default directory\n"
-			+"logv /log/file/path -> log to console and log to /log/file/path\n"
+			+"logv -> log to console and to file (LOG DESTINATION or default if not specified)\n"
+			+"help -> shows this message\n"
+			+"Log file default path log/texProcessor.log"
 	);
 }
 
