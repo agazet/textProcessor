@@ -27,7 +27,7 @@ class TextStatistics extends stream.Transform{
 			
 			const growRate = sizeInBytes/elapsedTimeInSec;
 			
-			const textStatisticsMessage = `Read ${noOfLines} lines. Throughput rate of the input stream ${growRate} (bytes/sec)`;
+			const textStatisticsMessage = `Read ${noOfLines} lines. Text grow rate ${growRate} (bytes/sec)`;
 			
 			logInfo(this.loggingOption, sizeInBytes, noOfLines, elapsedTimeInSec, textStatisticsMessage);
 			

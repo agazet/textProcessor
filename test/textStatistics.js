@@ -6,7 +6,7 @@ const TextStatistics = require(path.resolve('./textProcessor/textStatistics')); 
 
 let passedTests = 0;
 
-module.exports.isCorrectThroughput = function(){
+module.exports.isCorrectGrowRate = function(){
 	const textInfo = {
     		sizeInBytes: 20,
     		noOfLines: 1,
@@ -18,7 +18,7 @@ module.exports.isCorrectThroughput = function(){
 	testTextStatisticsMessage(textInfo, expectedMessage);
 }
 
-module.exports.isCorrectThroughputForZeros = function(){
+module.exports.isCorrectGrowRateForZeros = function(){
 	const textInfo = {
     		sizeInBytes: 0,
     		noOfLines: 0,
@@ -30,7 +30,7 @@ module.exports.isCorrectThroughputForZeros = function(){
 	testTextStatisticsMessage(textInfo, expectedMessage);
 }
 
-module.exports.isCorrectThroughputForZeros = function(){
+module.exports.isCorrectGrowRateForZeros = function(){
 	const textInfo = {
     		sizeInBytes: 300,
     		noOfLines: 7,
@@ -82,8 +82,8 @@ function assertTextStatisticsMessage(actualMessage, expectedMessage){
 			"expected => "+ expectedMessage);
 }
 
-function createTextStatisticsMessage(noOfLines, througputRate){
-	return `Read ${noOfLines} lines. Throughput rate of the input stream ${througputRate} (bytes/sec)\n`;
+function createTextStatisticsMessage(noOfLines, growRate){
+	return `Read ${noOfLines} lines. Text grow rate ${growRate} (bytes/sec)\n`;
 }
 
 function testTextStatisticsMessage(textInfo, expectedMessage){
